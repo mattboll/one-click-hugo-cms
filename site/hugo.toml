@@ -1,19 +1,17 @@
-baseurl = "/"
 languageCode = "fr-FR"
+defaultContentLang = "fr"
 languageLang = "fr"
 defaultContentLanguage = "fr"
-defaultContentLang = "fr"
-title = "Nom du site / service"
-
-# RSS, categories and tags disabled for an easy start
-# See configuration options for more details: 
-# https://gohugo.io/getting-started/configuration/#toml-configuration
 disableKinds = ["RSS", "taxonomy", "taxonomyTerm"]
+title = "Nom du site / service"
+baseurl = "/"
 
 [params]
-images = ["img/og-image.jpg"]
+images = ["img/gopher_moi.png"]
 
 [markup]
-  [markup.goldmark]
-    [markup.goldmark.renderer]
-      unsafe = true
+
+[markup.goldmark]
+
+[markup.goldmark.renderer]
+unsafe = true

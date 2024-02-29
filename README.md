@@ -52,3 +52,9 @@ For an icon named `icons-facebook.svg`, refer to the SVG `social-icon` partial l
 ```
 {{ partial "social-icon" (dict "link" "#" "svg" "icons-facebook" "alt" "Kaldi on Facebook") }}
 ```
+
+
+Se logger en local :
+```
+npx netlify-cms-proxy-server
+```
