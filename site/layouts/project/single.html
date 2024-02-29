@@ -1,0 +1,16 @@
+{{ define "main" }}
+
+<div class="fr-container">
+    <h1 class="f2 lh-title b mb3">{{.Title}}</h1>
+    <div class="fr-grid-row">
+      <p class="fr-col-6">{{ dateFormat "Monday 2 January 2006" .Date }}</p>
+      <p class="fr-col-6">Lire en {{ .ReadingTime }} minutes</p>
+    </div>
+    <div class="cms mw6">
+      <p>{{ .Description }}</p>
+      {{ with .Resources.Get .Params.image }}<img style="max-width: 100%;" src="{{ .RelPermalink }}" alt="{{ $.Title }}" />{{ end }}
+      {{ .Content }}
+    </div>
+</div>
+
+{{ end }}

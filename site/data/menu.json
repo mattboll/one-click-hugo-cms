@@ -1,24 +1,20 @@
 {
   "links": [
     {
-      "name": "Accueil",
-      "url": "/accueil"
+      "name": "Compétences",
+      "url": "#competences"
     },
     {
       "name": "Réalisations",
-      "url": "/realisations"
-    },
-    {
-      "name": "Compétences",
-      "url": "/competences"
+      "url": "#realisations"
     },
     {
       "name": "L'équipe",
-      "url": "/equipe"
+      "url": "#equipe"
     },
     {
       "name": "Blog",
-      "url": "/blog"
+      "url": "#blog"
     }
   ]
 }

@@ -1,10 +1,23 @@
 ---
-title: Accueil
+title: Agence de développement web et mobile
 ---
-<br>
 
-# Essai d'un CMS DSFR
+<section class="presentation">
+    <div>
+        <p>
+            Fondée en 2014, Code-Troopers s’est développée au sein de MAME (Lieu totem de la French Tech Loire Valley) et est dorénavant installée rue Abraham Bosse.
+        </p>
+        <p>
+        <a href="/#contact">Nous situer</a>
+        </p>
+    </div>
 
-Créez et gérez votre site internet simplement!
-
-Test de CMS
+    <div>
+        <p>
+            Code-Troopers est une agence spécialisée dans le développement logiciel et la conception d’applications web et mobiles sur-mesure.
+        </p>
+        <p>
+            Analyse pour de grands groupes, développement natif multisupport pour des start-ups innovantes… Les membres de notre structure s’engagent dans des suivis complets, rigoureux, au plus près des différentes phases de vos projets informatiques.
+        </p>
+    </div>
+</section>

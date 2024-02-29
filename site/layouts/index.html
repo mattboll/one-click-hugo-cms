@@ -1,7 +1,10 @@
 {{ define "main" }}
 
-<div class="fr-container">
 {{ .Content }}
-</div>
+
+{{ partial "skill" .}}
+{{ partial "project" .}}
+{{ partial "team" .}}
+{{ partial "blog" .}}
 
 {{ end }}
