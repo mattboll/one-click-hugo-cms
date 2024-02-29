@@ -1,14 +1,24 @@
 {
-  "title": "Nom du site / service",
-  "subtitle": "baseline - précisions sur l'organisation",
-  "liens": [
+  "links": [
     {
-      "text": "Blog",
-      "url": "/post"
+      "name": "Accueil",
+      "url": "/accueil"
     },
     {
-      "text": "Accessibilité",
-      "url": "/accessibilité"
+      "name": "Réalisations",
+      "url": "/realisations"
+    },
+    {
+      "name": "Compétences",
+      "url": "/competences"
+    },
+    {
+      "name": "L'équipe",
+      "url": "/equipe"
+    },
+    {
+      "name": "Blog",
+      "url": "/blog"
     }
   ]
 }

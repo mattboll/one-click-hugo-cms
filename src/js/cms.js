@@ -9,7 +9,6 @@ import PostPreview from "./cms-preview-templates/post";
 import FooterPreview from "./cms-preview-templates/footer";
 
 CMS.registerPreviewStyle(styles, { raw: true });
-CMS.registerPreviewStyle("/dsfr/dsfr.min.css");
 CMS.registerPreviewTemplate("home", HomePreview);
 CMS.registerPreviewTemplate("post", PostPreview);
 CMS.registerPreviewTemplate("footer", FooterPreview);
