@@ -8,7 +8,7 @@
 
 
     <div class="wrapper">
-    {{ range $index, $page := .Paginator.Pages }}
+    {{ range $index, $page := .Paginator.Pages.ByWeight }}
     {{ .Render "li" }}
     {{ end }}
     </div>

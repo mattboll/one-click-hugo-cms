@@ -7,6 +7,7 @@ tags:
 - Web
 title: "Navig'Tours"
 url: /navigtours.html
+weight: 10
 
 ---
 
