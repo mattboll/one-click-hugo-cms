@@ -1,4 +1,6 @@
 {{ define "main" }}
+
+{{ $paginator := .Paginate (where .Pages.ByWeight "Type" "work") 8 }}
 <section id="portfolio">
     <div class="wrapper">
         <h1>
@@ -8,13 +10,13 @@
 
 
     <div class="wrapper">
-    {{ range $index, $page := (.Paginate (first 11 .Pages.ByWeight)).Pages }}
+    {{ range $index, $page := $paginator.Pages }}
     {{ .Render "li" }}
     {{ end }}
     </div>
 
     <section id="articles">
-        {{ if or (.Paginator.HasPrev) (.Paginator.HasNext) }}
+        {{ if or ($paginator.HasPrev) ($paginator.HasNext) }}
         <div class="pagination">
             {{ if .Paginator.HasPrev }}
             <a href="{{ .Paginator.Prev.URL }}" class="previous-page">
