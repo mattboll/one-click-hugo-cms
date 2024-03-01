@@ -115,15 +115,3 @@ a {
     color: $white;
   }
 }
-
-.presentation {
-    display: flex;
-    flex-direction: row;
-    @media (max-width:480px) {
-        flex-direction: column;
-    }
-
-    div {
-        flex: 1;
-    }
-}
