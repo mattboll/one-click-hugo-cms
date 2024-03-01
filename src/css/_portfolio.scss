@@ -122,7 +122,6 @@ section#work, section#portfolio{
         position: absolute;
         top: 5px;
         left: 8px;
-        // @include fa-icon();
         font-size: 18px;
       }
 
@@ -132,15 +131,18 @@ section#work, section#portfolio{
         color: $white;
       }
     }
-    // li.android span::before {
-    //   content: $fa-var-android;
-    // }
-    // li.ios span::before {
-    //   content: $fa-var-apple;
-    // }
-    // li.web span::before {
-    //   content: $fa-var-globe;
-    // }
+    li.android span::before {
+      font-family: 'remixicon';
+      content: '\ea35';
+    }
+    li.ios span::before {
+      font-family: 'remixicon';
+      content: '\ea3f';
+    }
+    li.web span::before {
+      font-family: 'remixicon';
+      content: '\ec79';
+    }
   }
 }
 
