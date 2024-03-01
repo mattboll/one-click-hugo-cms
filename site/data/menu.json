@@ -2,19 +2,19 @@
   "links": [
     {
       "name": "Compétences",
-      "url": "#competences"
+      "url": "#skills"
     },
     {
       "name": "Réalisations",
-      "url": "#realisations"
+      "url": "#portfolio"
     },
     {
       "name": "L'équipe",
-      "url": "#equipe"
+      "url": "#team"
     },
     {
       "name": "Blog",
-      "url": "#blog"
+      "url": "#blogs"
     }
   ]
 }

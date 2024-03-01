@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+  <title>Code-Troopers - Play2 accéder à la base de donnée</title>
+  
+  
+    <link href="/main.css" rel="stylesheet">
+  
+
+	<meta charset="utf-8">
+	<meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <base href="/">
+	
+	<link rel="apple-touch-icon" sizes="180x180" href="/img/apple-touch-icon.png">
+	<link rel="icon" href="/favicon.ico">
+	<link rel="manifest" href="/manifest.json">
+	<link rel="mask-icon" href="/img/safari-pinned-tab.svg" color="#ff4400">
+	<meta name="theme-color" content="#fff">
+
+  
+  <meta property="og:title" content="Play2 accéder à la base de donnée" />
+<meta property="og:description" content="Play2, c&rsquo;est fun et c&rsquo;est rapide ! Il suffit de quelques instants pour avoir une appli qui tourne en local sans rien avoir à configurer voir la doc de play. En plus dès que l&rsquo;on commence un peu à jouer, créer des entités, faire une page de CRUD, tout tourne toujours aussi bien. Il faut dire que c&rsquo;est agréable, car Ebean s&rsquo;est occupé de générer les commandes sql dans le fichier 1." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/2014/05/05/playdbbrowser/" /><meta property="og:image" content="/img/gopher_moi.png"/><meta property="article:section" content="blog" />
+<meta property="article:published_time" content="2014-05-05T00:00:00+00:00" />
+<meta property="article:modified_time" content="2014-05-05T00:00:00+00:00" />
+
+
+  
+</head>
+  <body class="sans-serif">
+
+    <header>
+    <nav>
+        <a href="/" class="brand">Code-Troopers</a>
+        
+            <a href="#skills">Compétences</a>
+        
+            <a href="#portfolio">Réalisations</a>
+        
+            <a href="#team">L&#39;équipe</a>
+        
+            <a href="#blogs">Blog</a>
+        
+    </nav>
+</header>
+
+    
+
+<div class="fr-container">
+    <h1 class="f2 lh-title b mb3">Play2 accéder à la base de donnée</h1>
+    <div class="fr-grid-row">
+      <p class="fr-col-6">lundi 5 mai 2014</p>
+      <p class="fr-col-6">Lire en 2 minutes</p>
+    </div>
+    <div class="cms mw6">
+      <p></p>
+      
+      <p><a href="http://www.playframework.com/">Play2</a>, c&rsquo;est fun et c&rsquo;est rapide !
+Il suffit de quelques instants pour avoir une appli qui tourne en local sans rien avoir à configurer <a href="http://www.playframework.com/documentation/2.2.x/NewApplication">voir la doc de play</a>.
+En plus dès que l&rsquo;on commence un peu à jouer, créer des entités, faire une page de CRUD, tout tourne toujours aussi bien. Il faut dire que c&rsquo;est agréable, car <a href="http://www.playframework.com/documentation/2.2.x/JavaEbean">Ebean</a> s&rsquo;est occupé de générer les commandes sql dans le fichier <em>1.sql</em> qui est joué automatiquement par play.</p>
+<p>Le problème arrive en général un peu après, lorsque l&rsquo;envie nous prend de visualiser les données qu&rsquo;on a insérées via les pages pour différents traitements.
+En effet, pas besoin de monter un serveur sql ou autre, par défaut tout se passe dans une base en mémoire (ce qui signifie aussi, que lorsque le serveur est arrêté les datas disparaissent).
+Et forcément la question universelle est &ldquo;Mais comment je peux voir ces ***** de data en base ?&rdquo;.</p>
+<p>La solution est simple, elle réside dans une commande <code>h2-browser</code>.
+Mais pour pouvoir l&rsquo;utiliser, il va falloir se discipliner un tout petit peu. En effet, si vous aviez l&rsquo;habitude de faire des <code>play run</code> pour lancer le serveur et des <code>ctrl-D</code> pour l&rsquo;arrêter, il va falloir changer de méthode.</p>
+<p>La procédure miracle est donc la suivante :</p>
+<ul>
+<li>lancer la console play</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>    $ play
+</span></span></code></pre></div><ul>
+<li>lancer le visualiseur de bdd (qui ouvre une fenêtre dans votre navigateur web)</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>    $ h2-browser
+</span></span></code></pre></div><ul>
+<li>démarrer votre serveur.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>    $ run
+</span></span></code></pre></div><p>Lorsqu&rsquo;il se lance h2-browser devrait vous présenter une fenêtre de connexion comme celle-ci :</p>
+<div style="text-align : center">
+    <a style="display: inline" href="/images/posts/2014-05-05-PlayDbBrowser/h2-browser.png" data-lightbox="image-0" title="Fenêtre de connection h2-browser">
+            <img class="medium" src="/images/posts/2014-05-05-PlayDbBrowser/h2-browser.png" alt="Fenêtre de connection h2-browser"/>
+    </a>
+</div>
+<p>Maitenant qu&rsquo;il est lancé, il faut se connecter, et par défaut c&rsquo;est pas gagné, parce qu&rsquo;il est configuré pour aller dans la base &rsquo;test&rsquo; qui est une base valide, mais surement pas celle où vos données sont.</p>
+<p>Il faut donc modifier les champs <em>jdbc</em>, <em>login</em>, <em>password</em>.
+Pour cela allez chercher dans <strong>application.conf</strong> (normalement situé dans le répertoire <em>/conf/</em> de votre projet) et trouvez les champs suivants</p>
+<pre><code>db.default.url=&quot;jdbc:h2:mem:play&quot;
+db.default.user=sa
+db.default.password=
+</code></pre>
+<p>ce sont les 3 valeurs à recopier dans la fenêtre de connexion.</p>
+<p>Et voilà le tour est joué, c&rsquo;est tout de même sympa d&rsquo;être sûr de ce que l&rsquo;on a en base.</p>
+<p><em>NB</em> : Il faut absolument faire le <code>run</code> avant de se connecter à la base de donnée, sinon celle-ci sera lockée lors de la connexion par h2-broswer et l&rsquo;application play ne pourra pas s&rsquo;y connecter.</p>
+
+    </div>
+</div>
+
+
+
+    <section id="contact">
+    <h1>Contact</h1>
+    <div>
+        <div><iframe
+                    width="100%"
+                    height="100%"
+                    loading="lazy"
+                    frameborder="0" style="border:0"
+                    src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBZkgfEiV0p1XY0-7jptEa500_MhqZQUYk&q=Code-Troopers,+37000+Tours+France&zoom=15">
+            </iframe></div>
+        <div>
+            <h2>Code-Troopers</h2>
+            <p>
+                26 bis rue Abraham Bosse<br>
+                37000 Tours - Fr
+            </p>
+            <p>
+                <a href="mailto:contact@code-troopers.com">contact@code-troopers.com</a>
+            </p>
+            <p>
+                <a class="button" href="tel:+33782287216">07 82 28 72 16</a>
+            </p>
+        </div>
+    </div>
+
+    <h1>Suivez nos actualités</h1>
+
+    <ul class="flex">
+        <li>
+            <a href="https://facebook.com/codetroopers37">
+                <i class="fa fa-facebook fa-3x fa-fw"></i>
+            </a>
+        </li>
+        <li>
+            <a href="https://twitter.com/codetroopers">
+                <i class="fa fa-twitter fa-3x fa-fw"></i>
+            </a>
+        </li>
+        <li>
+            <a href="https://github.com/code-troopers">
+                <i class="fa fa-github fa-3x fa-fw"></i>
+            </a>
+        </li>
+        <li>
+            <a href="/index.xml">
+                <i class="fa fa-rss fa-3x fa-fw"></i>
+            </a>
+        </li>
+    </ul>
+</section>
+
+<footer>
+    <div class="wrapper">
+        <a href="#top" class="scroll-to-top">
+            <img class="arrow" src="/img/arrow.png" alt="arrow">
+        </a>
+        <img src="/img/footer_logo.png" alt="logo">
+        <div>
+            <span>©2014 — 2024 Code-Troopers | <a href="/legals.html">Mentions légales</a></span>
+            <span>Design : <a href="https://www.descheval.com/">descheval.com</a> | Développement : Code-Troopers</span>
+        </div>
+    </div>
+</footer>
+
+    
+    
+      <script src="/main.js"></script>
+    
+  </body>
+</html>

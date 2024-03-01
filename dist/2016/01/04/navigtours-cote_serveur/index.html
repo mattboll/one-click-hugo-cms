@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+  <title>Code-Troopers - Navig&#39;Tours : côté serveur</title>
+  
+  
+    <link href="/main.css" rel="stylesheet">
+  
+
+	<meta charset="utf-8">
+	<meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <base href="/">
+	
+	<link rel="apple-touch-icon" sizes="180x180" href="/img/apple-touch-icon.png">
+	<link rel="icon" href="/favicon.ico">
+	<link rel="manifest" href="/manifest.json">
+	<link rel="mask-icon" href="/img/safari-pinned-tab.svg" color="#ff4400">
+	<meta name="theme-color" content="#fff">
+
+  
+  <meta property="og:title" content="Navig&#39;Tours : côté serveur" />
+<meta property="og:description" content="Cet article, une fois n&rsquo;est pas coutume, va rentrer un peu plus dans le fonctionnement de la partie serveur mise en place pour Navig&rsquo;Tours. Si vous n&rsquo;êtes pas technique, il risque d&rsquo;être compliqué de le suivre !
+Architecture La partie serveur de Navig&rsquo;Tours est en réalité assez simple. Comme dit lors de différentes présentations des membres de Code-Troopers, ce projet est pour nous un moyen de nous amuser lorsque nous nous retrouvons tous les septs." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/2016/01/04/navigtours-cote_serveur/" /><meta property="og:image" content="/img/gopher_moi.png"/><meta property="article:section" content="blog" />
+<meta property="article:published_time" content="2016-01-04T00:00:00+00:00" />
+<meta property="article:modified_time" content="2016-01-04T00:00:00+00:00" />
+
+
+  
+</head>
+  <body class="sans-serif">
+
+    <header>
+    <nav>
+        <a href="/" class="brand">Code-Troopers</a>
+        
+            <a href="#skills">Compétences</a>
+        
+            <a href="#portfolio">Réalisations</a>
+        
+            <a href="#team">L&#39;équipe</a>
+        
+            <a href="#blogs">Blog</a>
+        
+    </nav>
+</header>
+
+    
+
+<div class="fr-container">
+    <h1 class="f2 lh-title b mb3">Navig&#39;Tours : côté serveur</h1>
+    <div class="fr-grid-row">
+      <p class="fr-col-6">lundi 4 janvier 2016</p>
+      <p class="fr-col-6">Lire en 3 minutes</p>
+    </div>
+    <div class="cms mw6">
+      <p></p>
+      
+      <p>Cet article, une fois n&rsquo;est pas coutume, va rentrer un peu plus dans le fonctionnement de la partie serveur mise en place pour <a href="http://navigtours.com/">Navig&rsquo;Tours</a>.
+Si vous n&rsquo;êtes pas technique, il risque d&rsquo;être compliqué de le suivre !</p>
+<!-- break -->
+<h2 id="architecture">Architecture</h2>
+<p>La partie serveur de Navig&rsquo;Tours est en réalité assez simple. Comme dit lors de différentes présentations des membres de Code-Troopers, ce projet est pour nous un moyen de nous amuser lorsque nous nous retrouvons tous les septs.
+C&rsquo;est également le projet que nous utilisons pour tester certaines technologies et approches.</p>
+<p>Ainsi, Navig&rsquo;Tours est une application développée en utilisant Java 8, mais rien de forcément très étonnant maintenant. Le côté le plus intéressant est qu&rsquo;elle est en production depuis plus d&rsquo;un an maintenant avec Java 8 !</p>
+<p>Ensuite, nous utilisons l&rsquo;excellent framework RestX pour simplifier notre vie dans la gestion des appels REST, ce qu&rsquo;il nous apporte, entre autres :</p>
+<ul>
+<li>de l&rsquo;injection de dépendances lors de la compilation</li>
+<li>un outillage d&rsquo;administration complet</li>
+<li>une plateforme de test intégrée et de specs nous permettant de documenter facilement l&rsquo;API</li>
+</ul>
+<p>Enfin, pour la partie stockage des données, nous utilisons MongoDB qui nous simplifie la gestion de données en manipulant des données principalement au format JSON (et fournit une bonne gestion de la géolocalisation par coordonnées).</p>
+<h2 id="du-dev">Du dev&hellip;</h2>
+<p>Côté dev, nous utilisons notre petit wrapper (<a href="http://code-troopers.com/2014/12/15/CT_Project_Alias.html">ct</a>) pour les tâches classiques qui se charge d&rsquo;effectuer le build ainsi que le run de l&rsquo;application avec ses dépendances.
+Le lancement de l&rsquo;application se limite à mettre à disposition un serveur MongoDB ainsi qu&rsquo;à effectuer un <code>java -jar</code>.</p>
+<h2 id="à-la-prod-">À la prod !</h2>
+<p>Historiquement, l&rsquo;application a été déployée sur Heroku dans son plan gratuit en utilisant plusieurs services cibles (pour répartir la charge via l&rsquo;utilisation de plusieurs entrées DNS).</p>
+<p>Mais, suite au changement de tarification d&rsquo;Heroku et notre envie d&rsquo;utiliser Docker sur un vrai projet, nous avons migré l&rsquo;environnement pour utiliser exclusivement Docker.</p>
+<p>Un des intérêts de la transformation que nous avons opéré est que nous sommes également capable de lancer l&rsquo;application très simplement à l&rsquo;aide de descripteurs Docker ainsi que du docker-compose qui décrit les interactions entre nos services.</p>
+<h2 id="process-de-livraison">Process de livraison</h2>
+<p>Pour effectuer la livraison de l&rsquo;application, nous sommes passés d&rsquo;un <code>git push</code> vers heroku à un process impliquant Jenkins dans 3 étapes successives (mais qui s&rsquo;enchaînent automatiquement) :</p>
+<ul>
+<li>construction de l&rsquo;application et archivage dans un <code>tgz</code></li>
+<li>copie du tgz produit pour la construction d&rsquo;une image Docker poussée vers notre dépôt interne</li>
+<li>lancement de l&rsquo;application via un <code>docker-compose run -d</code> sur les machines cibles</li>
+</ul>
+<h2 id="gestion-du-multi-environnement">Gestion du multi-environnement</h2>
+<p>Comme toutes les applications d&rsquo;entreprise, nous déployons vers plusieurs environnement afin de valider la bonne tenue de l&rsquo;application et la qualité de nos développements :</p>
+<ul>
+<li>dev / local : poste du développeur</li>
+<li>preprod : version à passer en production</li>
+<li>prod : version actuelle</li>
+</ul>
+<p>À ceci, nous pouvons ajouter plusieurs versions en parallèle pour différentes fonctionnalités et/ou villes (l&rsquo;info exclusive est cachée ici, Navig&rsquo;VotreVille arrive…).
+Pour être capable de gérer des déploiements différents nous avons ajouté quelques paramètres à nos scripts de lancement de docker-compose nous permettant de disposer de noms différents par projet pous éviter les problèmes.</p>
+
+    </div>
+</div>
+
+
+
+    <section id="contact">
+    <h1>Contact</h1>
+    <div>
+        <div><iframe
+                    width="100%"
+                    height="100%"
+                    loading="lazy"
+                    frameborder="0" style="border:0"
+                    src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBZkgfEiV0p1XY0-7jptEa500_MhqZQUYk&q=Code-Troopers,+37000+Tours+France&zoom=15">
+            </iframe></div>
+        <div>
+            <h2>Code-Troopers</h2>
+            <p>
+                26 bis rue Abraham Bosse<br>
+                37000 Tours - Fr
+            </p>
+            <p>
+                <a href="mailto:contact@code-troopers.com">contact@code-troopers.com</a>
+            </p>
+            <p>
+                <a class="button" href="tel:+33782287216">07 82 28 72 16</a>
+            </p>
+        </div>
+    </div>
+
+    <h1>Suivez nos actualités</h1>
+
+    <ul class="flex">
+        <li>
+            <a href="https://facebook.com/codetroopers37">
+                <i class="fa fa-facebook fa-3x fa-fw"></i>
+            </a>
+        </li>
+        <li>
+            <a href="https://twitter.com/codetroopers">
+                <i class="fa fa-twitter fa-3x fa-fw"></i>
+            </a>
+        </li>
+        <li>
+            <a href="https://github.com/code-troopers">
+                <i class="fa fa-github fa-3x fa-fw"></i>
+            </a>
+        </li>
+        <li>
+            <a href="/index.xml">
+                <i class="fa fa-rss fa-3x fa-fw"></i>
+            </a>
+        </li>
+    </ul>
+</section>
+
+<footer>
+    <div class="wrapper">
+        <a href="#top" class="scroll-to-top">
+            <img class="arrow" src="/img/arrow.png" alt="arrow">
+        </a>
+        <img src="/img/footer_logo.png" alt="logo">
+        <div>
+            <span>©2014 — 2024 Code-Troopers | <a href="/legals.html">Mentions légales</a></span>
+            <span>Design : <a href="https://www.descheval.com/">descheval.com</a> | Développement : Code-Troopers</span>
+        </div>
+    </div>
+</footer>
+
+    
+    
+      <script src="/main.js"></script>
+    
+  </body>
+</html>

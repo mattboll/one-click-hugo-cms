@@ -1,19 +1,17 @@
-<div class="bg-off-white pv4">
-	<div class="ph3 mw7 center">
+<section id="blogs">
+    <h1>Blog</h1>
 
-		<h2 class="f2 b lh-title mb3">Blog</h2>
+    <div class="wrapper">
 
-		<div class="w-100 flex-ns mhn1-ns flex-wrap mb3">
-			{{ range first 4 (where .Data.Pages "Type" "post") }}
-				<div class="ph1-ns w-50-ns flex">
-					{{ .Render "li" }}
-				</div>
-			{{ end }}
-		</div>
-
-		<div class="tc">
-			<a href="/post" class="btn raise">En savoir plus</a>
-		</div>
-
-	</div>
-</div>
+        <section id="articles">
+            <div class="wrapper">
+                {{ range first 3 (where .Site.RegularPages "Section" "blog") }}
+                {{ .Render "li" }}
+                {{ end }}
+            </div>
+        </section>
+    </div>
+    <div class="wrapper-center">
+        <a href="/blog/" class="btn">Tous nos articles</a>
+    </div>
+</section>
