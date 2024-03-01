@@ -1,5 +1,5 @@
 <head>
-  <title>{{ .Title }} | {{ $.Site.Title }}</title>
+  <title>{{ $.Site.Title }} - {{ .Title }}</title>
   {{ $stylesheet := .Site.Data.webpack.main }}
   {{ with $stylesheet.css }}
     <link href="{{ relURL . }}" rel="stylesheet">
@@ -11,7 +11,7 @@
   <base href="{{ $.Site.BaseURL }}">
 	<!-- Favicons -->
 	<link rel="apple-touch-icon" sizes="180x180" href="/img/apple-touch-icon.png">
-	<link rel="icon" href="/favicon/favicon.ico">
+	<link rel="icon" href="/favicon.ico">
 	<link rel="manifest" href="/manifest.json">
 	<link rel="mask-icon" href="/img/safari-pinned-tab.svg" color="#ff4400">
 	<meta name="theme-color" content="#fff">

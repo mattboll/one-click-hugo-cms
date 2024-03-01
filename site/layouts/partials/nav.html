@@ -1,9 +1,8 @@
 <header>
     <nav>
+        <a href="/" class="brand">Code-Troopers</a>
         {{ range .Site.Data.menu.links }}
-            <li class="menu-item">
-                <a class="menu-item-link" href="{{ .url }}">{{ .name }}</a>
-            </li>
+            <a href="{{ .url }}">{{ .name }}</a>
         {{ end }}
     </nav>
 </header>

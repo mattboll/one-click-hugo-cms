@@ -3,7 +3,7 @@ defaultContentLang = "fr"
 languageLang = "fr"
 defaultContentLanguage = "fr"
 disableKinds = ["RSS", "taxonomy", "taxonomyTerm"]
-title = "Nom du site / service"
+title = "Code-Troopers"
 baseurl = "/"
 
 [params]
