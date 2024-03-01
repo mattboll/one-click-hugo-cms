@@ -6,6 +6,7 @@ import "./css/main.scss";
 //     hljs.highlightBlock(block);
 // });
 
-import hljs from "../node_modules/highlight.js/es";
+// import hljs from "../node_modules/highlight.js/es";
 
+const hljs = require("../node_modules/highlight.js/lib/common");
 hljs.highlightAll();
