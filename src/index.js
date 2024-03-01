@@ -2,6 +2,10 @@
 
 import "./css/main.scss";
 
-// Say hello
-// eslint-disable-next-line no-console
-console.log("🦊 Hello! Edit me in src/index.js");
+// $('pre code:not([data-lang])').each(function (i, block) {
+//     hljs.highlightBlock(block);
+// });
+
+import hljs from "../node_modules/highlight.js/es";
+
+hljs.highlightAll();
