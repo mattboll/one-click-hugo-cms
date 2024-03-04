@@ -21,10 +21,6 @@ module.exports = {
       {
         test: /\.((png)|(eot)|(woff)|(woff2)|(ttf)|(svg)|(gif))(\?v=\d+\.\d+\.\d+)?$/,
         type: "asset/resource"
-        // loader: "file-loader",
-        // options: {
-        //   name: "name=/[hash].[ext]"
-        // }
       },
       {
         loader: "babel-loader",
