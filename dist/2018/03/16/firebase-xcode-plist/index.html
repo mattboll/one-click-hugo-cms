@@ -9,6 +9,8 @@
 
   
   
+    <link href="/main.css" rel="stylesheet">
+  
 	<meta charset="utf-8">
 	<meta http-equiv="x-ua-compatible" content="ie=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
@@ -129,7 +131,12 @@ Dans mon cas, j’ai identifié les valeurs suivantes qui devaient être variabi
 J’utilise des fichiers <code>.xcconfig</code> mais ceci fonctionne également avec l’ajout manuel (dans <code>Build Settings &gt; + &gt; Add User-Defined settings</code>)</p>
 </div>
 <div class="paragraph">
-<p>Unresolved directive in &lt;stdin&gt; - include::site/static/lightbox.adoc[]</p>
+<p></p><div style="text-align : center">
+<a style="display: inline" href="/images/posts/2018-03-16_FirebasePlistXcode/xcode_firebase_config.png" data-lightbox="0" title="XCode target configuration">
+        <img class="medium" src="/images/posts/2018-03-16_FirebasePlistXcode/xcode_firebase_config_min.png" alt="XCode target configuration"/>
+</a>
+</div>
+<br/><p></p>
 </div>
 <div class="paragraph">
 <p>En plus de ça, j’ai modifié le fichier <code>GoogleService-Info.plist</code> téléchargé sur Firebase pour enlever les éléments qui allaient être remplacés à terme.
@@ -159,7 +166,12 @@ defaults write &#34;${BUILT_PRODUCTS_DIR}/${PRODUCT_NAME}.app/GoogleService-Info
 <p>Enfin, il faut ordonner cette étape de <em>build</em> après celle de copie des ressources, pour effectuer la modification uniquement dans le fichier binaire de l’application et non dans les sources du projet.</p>
 </div>
 <div class="paragraph">
-<p>Unresolved directive in &lt;stdin&gt; - include::site/static/lightbox.adoc[]</p>
+<p></p><div style="text-align : center">
+<a style="display: inline" href="/images/posts/2018-03-16_FirebasePlistXcode/xcode_firebase_build_script.png" data-lightbox="0" title="XCode build script configuration">
+        <img class="medium" src="/images/posts/2018-03-16_FirebasePlistXcode/xcode_firebase_build_script_min.png" alt="XCode build script configuration"/>
+</a>
+</div>
+<br/><p></p>
 </div>
 </div>
 </div>

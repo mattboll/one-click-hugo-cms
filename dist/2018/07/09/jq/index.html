@@ -9,6 +9,8 @@
 
   
   
+    <link href="/main.css" rel="stylesheet">
+  
 	<meta charset="utf-8">
 	<meta http-equiv="x-ua-compatible" content="ie=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
@@ -111,7 +113,12 @@ Heureusement chaque board Trello permet un export au format json qui nous permet
 <p><code>jq &#39;.&#39; nPNSBZjB.json</code></p>
 </div>
 <div class="paragraph">
-<p>Unresolved directive in &lt;stdin&gt; - include::site/static/lightbox.adoc[]</p>
+<p></p><div style="text-align : center">
+<a style="display: inline" href="/images/posts/2018-07-09_jq/jq1.png" data-lightbox="0" title="jq example 1">
+        <img class="medium" src="/images/posts/2018-07-09_jq/jq1_min.png" alt="jq example 1"/>
+</a>
+</div>
+<br/><p></p>
 </div>
 <div class="paragraph">
 <p>Si vous aviez ouvert le fichier avec un éditeur conventionnel, vous pouvez voir que c’est un peu plus joli et coloré.</p>
@@ -123,7 +130,12 @@ Heureusement chaque board Trello permet un export au format json qui nous permet
 <p><code>jq &#39;.actions[]&#39; nPNSBZjB.json</code></p>
 </div>
 <div class="paragraph">
-<p>Unresolved directive in &lt;stdin&gt; - include::site/static/lightbox.adoc[]</p>
+<p></p><div style="text-align : center">
+<a style="display: inline" href="/images/posts/2018-07-09_jq/jq2.png" data-lightbox="0" title="jq example 2">
+        <img class="medium" src="/images/posts/2018-07-09_jq/jq2_min.png" alt="jq example 2"/>
+</a>
+</div>
+<br/><p></p>
 </div>
 <div class="paragraph">
 <p>Comme vous l’avez peut-être compris, une façon simple d’utiliser jq est de mettre en paramètre le path json que l’on souhaite extraire. Ici, les <code>[]</code> sont optionnels, cela permet d’afficher uniquement des objets lorsque l’on a un tableau comme ici pour actions.</p>
@@ -137,7 +149,12 @@ Heureusement chaque board Trello permet un export au format json qui nous permet
 </div>
 </div>
 <div class="paragraph">
-<p>Unresolved directive in &lt;stdin&gt; - include::site/static/lightbox.adoc[]</p>
+<p></p><div style="text-align : center">
+<a style="display: inline" href="/images/posts/2018-07-09_jq/jq3.png" data-lightbox="0" title="jq example 3">
+        <img class="medium" src="/images/posts/2018-07-09_jq/jq3_min.png" alt="jq example 3"/>
+</a>
+</div>
+<br/><p></p>
 </div>
 <div class="paragraph">
 <p>Comme nous le ferions en javascript, il suffit de mettre le <strong>nom du champ</strong> <strong>:</strong> <strong>la variable</strong>. Nous pouvons aussi en profiter pour afficher les objets sur une ligne pour gagner en visibilité grâce au <code>-c</code>.</p>
@@ -151,7 +168,12 @@ Heureusement chaque board Trello permet un export au format json qui nous permet
 </div>
 </div>
 <div class="paragraph">
-<p>Unresolved directive in &lt;stdin&gt; - include::site/static/lightbox.adoc[]</p>
+<p></p><div style="text-align : center">
+<a style="display: inline" href="/images/posts/2018-07-09_jq/jq4.png" data-lightbox="0" title="jq example 4">
+        <img class="medium" src="/images/posts/2018-07-09_jq/jq4_min.png" alt="jq example 4"/>
+</a>
+</div>
+<br/><p></p>
 </div>
 <div class="paragraph">
 <p>Dernière commande sur l’utilisation de jq, la possibilité de trier, par exemple dans l’ordre alphabétique du champs texte</p>
@@ -162,7 +184,12 @@ Heureusement chaque board Trello permet un export au format json qui nous permet
 </div>
 </div>
 <div class="paragraph">
-<p>Unresolved directive in &lt;stdin&gt; - include::site/static/lightbox.adoc[]</p>
+<p></p><div style="text-align : center">
+<a style="display: inline" href="/images/posts/2018-07-09_jq/jq5.png" data-lightbox="0" title="jq example 5">
+        <img class="medium" src="/images/posts/2018-07-09_jq/jq5_min.png" alt="jq example 5"/>
+</a>
+</div>
+<br/><p></p>
 </div>
 <div class="paragraph">
 <p>J’espère que ce petit exemple d’utilisation de jq vous aura plu, je vous laisse à la documentation officielle si vous désirez en savoir plus : <a href="https://stedolan.github.io/jq/" class="bare">https://stedolan.github.io/jq/</a></p>

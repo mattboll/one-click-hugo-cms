@@ -9,6 +9,8 @@
 
   
   
+    <link href="/main.css" rel="stylesheet">
+  
 	<meta charset="utf-8">
 	<meta http-equiv="x-ua-compatible" content="ie=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
@@ -137,7 +139,12 @@ $ sudo docker-compose build</pre>
 <p>C’est tout, le service est alors disponible sur le port 8000.</p>
 </div>
 <div class="paragraph">
-<p>Unresolved directive in &lt;stdin&gt; - include::site/static/lightbox.adoc[]</p>
+<p></p><div style="text-align : center">
+<a style="display: inline" href="/images/posts/2018-05-02_requestbin-ngrok/homepage.png" data-lightbox="0" title="Page d’accueil">
+        <img class="medium" src="/images/posts/2018-05-02_requestbin-ngrok/homepage_min.png" alt="Page d’accueil"/>
+</a>
+</div>
+<br/><p></p>
 </div>
 <div class="paragraph">
 <p>Il est à noter que le projet est également préconfiguré pour deployer rapidement le service sur Heroku, seul l’addon <code>heroku-redis</code> est nécessaire : se référer à la documentation pour davantages d’informations à ce sujet.</p>
@@ -152,7 +159,12 @@ $ sudo docker-compose build</pre>
 <p>Pour cela il suffit de cliquer sur <code>Create a RequestBin</code>. Un <em>Bin</em> va alors être généré et permettra donc d’écouter toutes les requêtes entrantes. Il s’agit ni plus ni moins d’un endpoint dynamique qui va accepter toutes les requêtes HTTP entrantes.</p>
 </div>
 <div class="paragraph">
-<p>Unresolved directive in &lt;stdin&gt; - include::site/static/lightbox.adoc[]</p>
+<p></p><div style="text-align : center">
+<a style="display: inline" href="/images/posts/2018-05-02_requestbin-ngrok/first_bin.png" data-lightbox="0" title="Exemple de Bin">
+        <img class="medium" src="/images/posts/2018-05-02_requestbin-ngrok/first_bin_min.png" alt="Exemple de Bin"/>
+</a>
+</div>
+<br/><p></p>
 </div>
 <div class="paragraph">
 <p>Ensuite, comme l’indique le <em>Bin</em> on va pouvoir commencer à jouer avec en branchant nos webhooks ou clients à tester sur cette url, dans notre exemple il s’agit de <code><a href="http://localhost:8000/1hc5lg41" class="bare">http://localhost:8000/1hc5lg41</a></code>.
@@ -164,7 +176,12 @@ Voyons le résultat d’une requête POST d’un objet JSON quelconque :</p>
 </div>
 </div>
 <div class="paragraph">
-<p>Unresolved directive in &lt;stdin&gt; - include::site/static/lightbox.adoc[]</p>
+<p></p><div style="text-align : center">
+<a style="display: inline" href="/images/posts/2018-05-02_requestbin-ngrok/result.png" data-lightbox="0" title="Visualisation d’une requête">
+        <img class="medium" src="/images/posts/2018-05-02_requestbin-ngrok/result_min.png" alt="Visualisation d’une requête"/>
+</a>
+</div>
+<br/><p></p>
 </div>
 <div class="paragraph">
 <p>Après avoir rafraîchi la page, il est alors très simple de visualiser le résultat reçu par notre <em>Bin</em> : headers, body, paramètres, …​</p>
@@ -204,7 +221,12 @@ Voyons le résultat d’une requête POST d’un objet JSON quelconque :</p>
 </div>
 </div>
 <div class="paragraph">
-<p>Unresolved directive in &lt;stdin&gt; - include::site/static/lightbox.adoc[]</p>
+<p></p><div style="text-align : center">
+<a style="display: inline" href="/images/posts/2018-05-02_requestbin-ngrok/ngrok.png" data-lightbox="0" title="ngrok">
+        <img class="medium" src="/images/posts/2018-05-02_requestbin-ngrok/ngrok_min.png" alt="ngrok"/>
+</a>
+</div>
+<br/><p></p>
 </div>
 <div class="paragraph">
 <p>Ici nous venons donc d’exposer notre serveur accessible sur le port 8000 de notre machine sur une url publique fournie par <strong>ngrok</strong>.
@@ -229,7 +251,12 @@ En effet il suffit de lui fournir comme url : <code><a href="https://4c4cdfa3.ng
 </div>
 </div>
 <div class="paragraph">
-<p>Unresolved directive in &lt;stdin&gt; - include::site/static/lightbox.adoc[]</p>
+<p></p><div style="text-align : center">
+<a style="display: inline" href="/images/posts/2018-05-02_requestbin-ngrok/result_final.png" data-lightbox="0" title="Résultat final">
+        <img class="medium" src="/images/posts/2018-05-02_requestbin-ngrok/result_final_min.png" alt="Résultat final"/>
+</a>
+</div>
+<br/><p></p>
 </div>
 </div>
 </div>
@@ -256,7 +283,12 @@ En effet il suffit de lui fournir comme url : <code><a href="https://4c4cdfa3.ng
 On pourra citer notamment <strong><a href="https://webhook.site" target="_blank" rel="noopener">Webhook Tester</a></strong> qui est une solution clef en main pour tester des webhooks, comme son nom l’indique, et qui gère pour nous la mise à disposition d’une url publique.</p>
 </div>
 <div class="paragraph">
-<p>Unresolved directive in &lt;stdin&gt; - include::site/static/lightbox.adoc[]</p>
+<p></p><div style="text-align : center">
+<a style="display: inline" href="/images/posts/2018-05-02_requestbin-ngrok/webhook_tester.png" data-lightbox="0" title="Webhook Tester">
+        <img class="medium" src="/images/posts/2018-05-02_requestbin-ngrok/webhook_tester_min.png" alt="Webhook Tester"/>
+</a>
+</div>
+<br/><p></p>
 </div>
 </div>
 </div>
