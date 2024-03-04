@@ -20,10 +20,11 @@ module.exports = {
     rules: [
       {
         test: /\.((png)|(eot)|(woff)|(woff2)|(ttf)|(svg)|(gif))(\?v=\d+\.\d+\.\d+)?$/,
-        loader: "file-loader",
-        options: {
-          name: "name=/[hash].[ext]"
-        }
+        type: "asset/resource"
+        // loader: "file-loader",
+        // options: {
+        //   name: "name=/[hash].[ext]"
+        // }
       },
       {
         loader: "babel-loader",
@@ -80,7 +81,7 @@ module.exports = {
     }),
     new HtmlWebpackPlugin({
       filename: "admin/index.html",
-      template: 'src/cms.html',
+      template: "src/cms.html",
       inject: true,
     })
   ]
